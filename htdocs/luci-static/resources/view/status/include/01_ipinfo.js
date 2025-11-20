@@ -88,7 +88,7 @@ return view.extend({
 						var propKey = Object.keys(dataUci).find(k => dataUci[k] === key);
 						if (propKey) {
 							hasData = true;
-							var value = propKey.split('.').reduce((o, i) => o ? o[i] : null, data.json);
+							var value = propKey.split('.').reduce((o, i) => (o && o[i] !== undefined) ? o[i] : null, data.json);
 							var row = E('tr', {'class': 'tr'}, [
 								E('td', {'class': 'td left', 'width': '33%'}, propertiesToShow[propKey]),
 								E('td', {'class': 'td left'}, value || '-')
