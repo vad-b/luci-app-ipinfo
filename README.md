@@ -4,10 +4,10 @@
 </div>
 <hr/>
 <div align="center">
-  <img alt="License" src="https://img.shields.io/github/license/animegasan/luci-app-ipinfo?style=for-the-badge">
-  <img alt="Forks" src="https://img.shields.io/github/forks/animegasan/luci-app-ipinfo?style=for-the-badge">
-  <img alt="Release" src="https://img.shields.io/github/v/release/animegasan/luci-app-ipinfo?style=for-the-badge">
-  <img alt="Downloads" src="https://img.shields.io/github/downloads/animegasan/luci-app-ipinfo/total?style=for-the-badge">
+  <img alt="License" src="https://img.shields.io/github/license/vad-b/luci-app-ipinfo?style=for-the-badge">
+  <img alt="Forks" src="https://img.shields.io/github/forks/vad-b/luci-app-ipinfo?style=for-the-badge">
+  <img alt="Release" src="https://img.shields.io/github/v/release/vad-b/luci-app-ipinfo?style=for-the-badge">
+  <img alt="Downloads" src="https://img.shields.io/github/downloads/vad-b/luci-app-ipinfo/total?style=for-the-badge">
 </div>
 <br/>
 <div align="center">
@@ -19,7 +19,7 @@
 
 ## Install via Terminal
 ```
-curl -s https://raw.githubusercontent.com/animegasan/luci-app-ipinfo/master/install.sh | sh
+curl -s https://raw.githubusercontent.com/vad-b/luci-app-ipinfo/master/install.sh | sh
 ```
 
 # Preview
