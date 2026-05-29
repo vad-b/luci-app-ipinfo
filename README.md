@@ -3,23 +3,23 @@
   <h3>Shows public ip information in Overview LuCI with ip.guide</h3>
 </div>
 <hr/>
-<div align="center">
-  <img alt="License" src="https://img.shields.io/github/license/animegasan/luci-app-ipinfo?style=for-the-badge">
-  <img alt="Forks" src="https://img.shields.io/github/forks/animegasan/luci-app-ipinfo?style=for-the-badge">
-  <img alt="Release" src="https://img.shields.io/github/v/release/animegasan/luci-app-ipinfo?style=for-the-badge">
-  <img alt="Downloads" src="https://img.shields.io/github/downloads/animegasan/luci-app-ipinfo/total?style=for-the-badge">
-</div>
-<br/>
-<div align="center">
-  <a target="_blank" href="https://saweria.co/animegasan" alt="Saweria"><img src="https://img.shields.io/badge/saweria-donation?style=for-the-badge&logo=adobeindesign&labelColor=black&color=%23FFA401"></a>
-  <a target="_blank" href="https://www.paypal.com/paypalme/animegasan" alt="PayPal"><img src="https://img.shields.io/badge/paypal-donation?style=for-the-badge&logo=paypal&labelColor=black&color=%23003087"></a>
-  <a target="_blank" href="https://www.buymeacoffee.com/animegasan" alt="BuyMeACoffee"><img src="https://img.shields.io/badge/buy%20me%20a%20coffee-donation?style=for-the-badge&logo=buymeacoffee&labelColor=black&color=%23FFDD00"></a>
-</div>
-<hr/>
 
-## Install via Terminal
+## About This Fork
+
+This fork is functionally based on [animegasan/luci-app-ipinfo](https://github.com/animegasan/luci-app-ipinfo). The main goal is compatibility with current and newer OpenWrt releases, including the 25.x+ series:
+
+- builds both package formats: `.ipk` for `opkg`-based OpenWrt releases and `.apk` for `apk`-based OpenWrt 25.x+ releases
+- includes an installer that auto-detects `opkg` / `apk`, downloads the matching latest release asset, and installs it
+- uses `wget` for installation instead of `curl`, since `wget` is much more likely to be available on a base OpenWrt system
+- removes the preliminary Google connectivity check before querying `ip.guide`, because Google can be blocked or unreachable while the actual IP lookup still works
+- handles `null` or missing nested JSON fields correctly, so absent values such as city, country, or provider details do not break rendering
+
+## Quick Install
+
+Auto-detects `opkg` / `apk` and installs the matching latest release package (`.ipk` or `.apk`):
+
 ```
-curl -s https://raw.githubusercontent.com/animegasan/luci-app-ipinfo/master/install.sh | sh
+wget -qO- https://raw.githubusercontent.com/vad-b/luci-app-ipinfo/main/install.sh | sh
 ```
 
 # Preview

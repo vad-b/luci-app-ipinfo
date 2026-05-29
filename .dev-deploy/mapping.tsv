@@ -1,0 +1,10 @@
+# local_path_from_deploy_dir<TAB+>remote_absolute_path<TAB+>mode<TAB+>policy
+# Policies:
+# - overwrite: always copy local file over remote file
+# - keep-if-exists: copy only when remote file does not exist
+
+../htdocs/luci-static/resources/view/ipinfo.js                   	/www/luci-static/resources/view/ipinfo.js                   	644	overwrite
+../htdocs/luci-static/resources/view/status/include/01_ipinfo.js 	/www/luci-static/resources/view/status/include/01_ipinfo.js 	644	overwrite
+../root/usr/share/luci/menu.d/luci-app-ipinfo.json               	/usr/share/luci/menu.d/luci-app-ipinfo.json                 	644	overwrite
+../root/usr/share/rpcd/acl.d/luci-app-ipinfo.json                	/usr/share/rpcd/acl.d/luci-app-ipinfo.json                  	644	overwrite
+../root/etc/config/ipinfo                                        	/etc/config/ipinfo                                          	644	keep-if-exists

@@ -23,27 +23,21 @@ return view.extend({
 				};
 				return jsonData;
 			} else {
-				return fs.exec('curl', ['-s', '-m', '5', '-o', '/dev/null', 'https://www.google.com']).then(function(result) {
-					if (result.code === 0) {
-						if (data.length > 0) {
-							var item = data[0];
-							jsonData.uci = {
-								enable: item.enable,
-								isp: item.isp,
-								loc: item.loc,
-								co: item.co
-							};
-						} else {
-							jsonData.uci = null;
-						};
-						return fs.exec('curl', ['-sL', 'ip.guide']).then(function(result) {
-							var data = JSON.parse(result.stdout);
-							jsonData.json = data;
-							return jsonData;
-						});
-					} else {
-						return jsonData;
+				if (data.length > 0) {
+					var item = data[0];
+					jsonData.uci = {
+						enable: item.enable,
+						isp: item.isp,
+						loc: item.loc,
+						co: item.co
 					};
+				} else {
+					jsonData.uci = null;
+				};
+				return fs.exec('curl', ['-sL', 'ip.guide']).then(function(result) {
+					var data = JSON.parse(result.stdout);
+					jsonData.json = data;
+					return jsonData;
 				});
 			};
 		});
@@ -88,7 +82,7 @@ return view.extend({
 						var propKey = Object.keys(dataUci).find(k => dataUci[k] === key);
 						if (propKey) {
 							hasData = true;
-							var value = propKey.split('.').reduce((o, i) => o ? o[i] : null, data.json);
+							var value = propKey.split('.').reduce((o, i) => (o !== null && o !== undefined) ? o[i] : null, data.json);
 							var row = E('tr', {'class': 'tr'}, [
 								E('td', {'class': 'td left', 'width': '33%'}, propertiesToShow[propKey]),
 								E('td', {'class': 'td left'}, value || '-')
